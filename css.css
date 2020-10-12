@@ -1,7 +1,18 @@
+:root {
+    --colNum: ;
+    --rowNum: ; 
+}
+
 #container {
+    width: 690px;
+    max-width: 690px;
+    min-width: 690px;
+    height: 690px;
+    max-height: 690px;
+    min-height: 690px;
     display: grid;
-    grid-template-columns: repeat(16, 30px);
-    grid-template-rows: repeat(16, 30px);
+  grid-template-columns: repeat(var(--colNum), auto);
+    grid-template-rows: repeat(var(--rowNum), auto); 
     border: 1px  black;
     margin-top: auto;
     margin-bottom: auto;
@@ -9,7 +20,7 @@
     margin-right: auto;
 }
 
-#reset {
+#resetButton {
     margin-bottom: 20px;
     margin-left: 550px;
     padding: 2%;
@@ -20,8 +31,8 @@
 
 
 .cell {
-    width: 30px;
-height: 30px;
+    width: auto;
+height: auto;
 background: rgb(0, 0, 0);
 border: 1px solid white;
 }

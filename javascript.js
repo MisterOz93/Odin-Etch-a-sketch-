@@ -1,18 +1,40 @@
+//current issue: the reset button adds a second grid, doesn't replace existing one.
+//Current issue 2: Grid needs to take up the same total amount of space, need to adjust css for that i think.
 
-const container = document.querySelector('#container')
+let container = document.querySelector('#container')
+
+
 let div;
-
+let start = window.onload = makeGrid(16,16);
 function makeGrid (rows, cols) {
-for (i = 0; i < (rows * cols); i++) {
-    let div = document.createElement('div');
-    //div.innerText = i + 1; 
-    container.appendChild(div).className = "cell";
+    for (i = 0; i < (rows * cols); i++) {
+        document.documentElement.style.setProperty("--rowNum", rows);
+        document.documentElement.style.setProperty("--colNum", cols);
+        div = document.createElement('div');
+        div.innerText = i + 1; 
+        container.appendChild(div).className = "cell";
+    }
+    }
+    const resetButton = document.querySelector('#resetButton')
+
+resetButton.addEventListener('click', () => {
+    start = '';
+    grid.forEach(turnBlack); 
+    let newGrid = prompt('How Many Squares Would You Like Per Row and Column? (ex: 16 creates a 16x16 grid)')
+    if (isNaN(newGrid)) {alert('Error, Please enter a number')
+}  else if (newGrid > 100 || newGrid < 1) {alert('Please Select A number between 1 and 100')
+}  else { 
+makeGrid(newGrid);
+        document.documentElement.style.setProperty("--rowNum", newGrid);
+        document.documentElement.style.setProperty("--colNum", newGrid);
 }
-}
-makeGrid(16, 16);
+}); 
 
 
+    
 const grid = document.querySelectorAll('.cell');
+
+
 
 function draw (x) {
     x.addEventListener('mouseenter', () => {
@@ -26,18 +48,5 @@ function turnBlack (x) {
 
 grid.forEach(draw);
 
-const clear = document.querySelector('#reset')
 
-clear.addEventListener('click', () => {
-    grid.forEach(turnBlack);  
-})
 
-//Current Step: button needs to also prompt user for new sized grid w/ max of 100x100. 
-
-// Next step: 
-//Add a button to the top of the screen which will clear the current grid and send the user 
-//a popup asking for how many squares per side to make the new grid. Once entered the new grid should
-// be generated in the same total space as before (e.g. 960px wide) and now you’ve got a new sketch pad. 
-//Tip: Set the limit for the user input to a maximum of 100. A larger number of squares results in more
-// computer resources being used, resulting in possible delays, freezing, 
-//or crashing that we want to prevent. 
