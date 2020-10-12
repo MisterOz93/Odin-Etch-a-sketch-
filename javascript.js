@@ -14,13 +14,25 @@ makeGrid(16, 16);
 
 const grid = document.querySelectorAll('.cell');
 
-grid.forEach((cell) => {
-    cell.addEventListener('mouseenter', () => {
-        cell.style.background = 'blue';
-       
+function draw (x) {
+    x.addEventListener('mouseenter', () => {
+        x.style.background = 'blue';
     })
-    
-});
+}
+
+function turnBlack (x) {
+    x.style.background ='black';
+}
+
+grid.forEach(draw);
+
+const clear = document.querySelector('#reset')
+
+clear.addEventListener('click', () => {
+    grid.forEach(turnBlack);  
+})
+
+//Current Step: button needs to also prompt user for new sized grid w/ max of 100x100. 
 
 // Next step: 
 //Add a button to the top of the screen which will clear the current grid and send the user 
