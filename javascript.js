@@ -1,7 +1,6 @@
-// create a grid of 16x16 square divs. Then nest them all in the existing div in html file. 
-// dust off css memory, use that to create columns and rows, then make function/loop for 16x16. 
-const container = document.querySelector('#container')
 
+const container = document.querySelector('#container')
+let div;
 
 function makeGrid (rows, cols) {
 for (i = 0; i < (rows * cols); i++) {
@@ -11,3 +10,22 @@ for (i = 0; i < (rows * cols); i++) {
 }
 }
 makeGrid(16, 16);
+
+
+const grid = document.querySelectorAll('.cell');
+
+grid.forEach((cell) => {
+    cell.addEventListener('mouseenter', () => {
+        cell.style.background = 'blue';
+       
+    })
+    
+});
+
+// Next step: 
+//Add a button to the top of the screen which will clear the current grid and send the user 
+//a popup asking for how many squares per side to make the new grid. Once entered the new grid should
+// be generated in the same total space as before (e.g. 960px wide) and now you’ve got a new sketch pad. 
+//Tip: Set the limit for the user input to a maximum of 100. A larger number of squares results in more
+// computer resources being used, resulting in possible delays, freezing, 
+//or crashing that we want to prevent. 
