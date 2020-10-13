@@ -4,15 +4,10 @@
 }
 
 #container {
-    width: 690px;
-    max-width: 690px;
-    min-width: 690px;
-    height: 690px;
-    max-height: 690px;
-    min-height: 690px;
+   
     display: grid;
-  grid-template-columns: repeat(var(--colNum), auto);
-    grid-template-rows: repeat(var(--rowNum), auto); 
+  grid-template-columns: repeat(var(--colNum), 30px);
+    grid-template-rows: repeat(var(--rowNum), 30px); 
     border: 1px  black;
     margin-top: auto;
     margin-bottom: auto;
@@ -31,8 +26,8 @@
 
 
 .cell {
-    width: auto;
-height: auto;
+    width: 30px;
+height: 30px;
 background: rgb(0, 0, 0);
 border: 1px solid white;
 }
