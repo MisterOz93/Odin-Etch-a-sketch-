@@ -26,16 +26,17 @@ let makeGrid = function (rows, cols) {
     grid.forEach(draw);
     function draw (x) {
     x.addEventListener('mouseenter', () => {
-        x.style.background = 'blue';
+        x.style.background = 'yellow';
     })
 }
     }
+
     makeGrid(defaultGrid, defaultGrid);
     const resetButton = document.querySelector('#resetButton')
 
 resetButton.addEventListener('click', (e) => {
 
-    let newGrid = prompt('How Many Squares Would You Like Per Row and Column? (ex: 16 creates a 16x16 grid)')
+    let newGrid = prompt('How Many Squares Would You Like Per Row and Column? (max 100)')
     if (isNaN(newGrid)) {alert('Error, Please enter a number')
 }  else if (newGrid > 100 || newGrid < 1) {alert('Please Select A number between 1 and 100')
 }  else { 

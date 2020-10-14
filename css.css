@@ -1,6 +1,7 @@
 :root {
     --colNum: ;
     --rowNum: ; 
+    background-color:bisque;
 }
 
 #container {
@@ -13,17 +14,22 @@
     min-height: 400px;
     max-height: 400px;
     margin: auto;
+    border: lightseagreen solid 5px;
     
 }
 
 #resetButton {
     margin-bottom: 20px;
-    margin-left: 550px;
+    margin-left: 45%;
     padding: 2%;
     font-style: italic;
+    background-color: lightcoral;
    
 }
+#resetButton:hover {
+background-color: goldenrod;
 
+}
 .cell {
 size: auto;
 background: rgb(0, 0, 0);
