@@ -21,13 +21,19 @@ let makeGrid = function (rows, cols) {
         div.innerText = i + 1;  //temporary 
         container.appendChild(div).className = "cell";
     }
+    const grid = document.querySelectorAll('.cell');
+    grid.forEach(draw);
+    function draw (x) {
+    x.addEventListener('mouseenter', () => {
+        x.style.background = 'blue';
+    })
+}
     }
     makeGrid(defaultGrid, defaultGrid);
     const resetButton = document.querySelector('#resetButton')
 
 resetButton.addEventListener('click', (e) => {
 
-    grid.forEach(turnBlack); 
     let newGrid = prompt('How Many Squares Would You Like Per Row and Column? (ex: 16 creates a 16x16 grid)')
     if (isNaN(newGrid)) {alert('Error, Please enter a number')
 }  else if (newGrid > 100 || newGrid < 1) {alert('Please Select A number between 1 and 100')
@@ -37,28 +43,12 @@ resetButton.addEventListener('click', (e) => {
     //Step two: create a new grid using newGrid as parameters
     makeGrid(newGrid,newGrid);
     
+    
 }; 
 })//event end 
 
 
          
-
-
-const grid = document.querySelectorAll('.cell');
-
-
-
-function draw (x) {
-    x.addEventListener('mouseenter', () => {
-        x.style.background = 'blue';
-    })
-}
-
-function turnBlack (x) {
-    x.style.background ='black';
-}
-
-grid.forEach(draw);
 
 
 
