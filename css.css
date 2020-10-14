@@ -6,14 +6,14 @@
 #container {
    
     display: grid;
-  grid-template-columns: repeat(var(--colNum), 30px);
-    grid-template-rows: repeat(var(--rowNum), 30px); 
-    border: 1px  black;
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 400px;
-    margin-right: auto;
-
+  grid-template-columns: repeat(var(--colNum), auto); /* these two need to be auto? */ 
+    grid-template-rows: repeat(var(--rowNum), auto); 
+    min-width: 700px;
+    max-width: 700px;
+    min-height: 400px;
+    max-height: 400px;
+    margin: auto;
+    
 }
 
 #resetButton {
@@ -25,10 +25,8 @@
 }
 
 .cell {
-    width: 30px;
-height: 30px;
+size: auto;
 background: rgb(0, 0, 0);
-border: 1px solid white;
 }
 
 

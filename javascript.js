@@ -2,10 +2,11 @@
 //issue 1 solved by emptying container at start of makeGrid. 
 
 //issue 2: Grid needs to take up the same total amount of space
+// issue 2 solved by getting rid of the i+1 inner text. 
 
 //Issue 3: draw event not working on new grids. 
-// idea: relocate cell selector and draw function/call into the makeGrid function. 
-//^start with this tomorrow so you can undo if it goes horribly wrong :) 
+// issue 3 solved by nesting draw function inside makeGrid
+
 let container = document.querySelector('#container')
 
 
@@ -18,7 +19,7 @@ let makeGrid = function (rows, cols) {
         document.documentElement.style.setProperty("--rowNum", rows);
         document.documentElement.style.setProperty("--colNum", cols);
         div = document.createElement('div');
-        div.innerText = i + 1;  //temporary 
+        //div.innerText = i + 1;  //temporary 
         container.appendChild(div).className = "cell";
     }
     const grid = document.querySelectorAll('.cell');
