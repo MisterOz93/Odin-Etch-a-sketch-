@@ -2,6 +2,7 @@
     --colNum: ;
     --rowNum: ; 
     background-color:bisque;
+    
 }
 
 #container {
@@ -15,6 +16,7 @@
     max-height: 400px;
     margin: auto;
     border: lightseagreen solid 5px;
+    
     
 }
 
@@ -30,9 +32,10 @@
 background-color: goldenrod;
 
 }
+
 .cell {
 size: auto;
-background: rgb(0, 0, 0);
+background-color: black;
 }
 
 

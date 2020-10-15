@@ -7,8 +7,21 @@
 //Issue 3: draw event not working on new grids. 
 // issue 3 solved by nesting draw function inside makeGrid
 
+//Issue 4: Getting the grids to darken by 10% each pass. 
+// Idea: instead of randomRGB function, create CSS variable.
+// Alternative idea: look up ways to grab a randomly generated number.  
+
 let container = document.querySelector('#container')
 
+let RGB = function randomRGB() {
+
+let randomR = Math.floor((Math.random() * 255) + 1);
+let randomG = Math.floor((Math.random() * 255) + 1);
+let randomB = Math.floor((Math.random() * 255) + 1);
+
+let randomRGB = [randomR,randomG,randomB];
+return randomRGB;
+}
 
 
 let defaultGrid = 16;
@@ -25,8 +38,17 @@ let makeGrid = function (rows, cols) {
     const grid = document.querySelectorAll('.cell');
     grid.forEach(draw);
     function draw (x) {
-    x.addEventListener('mouseenter', () => {
-        x.style.background = 'yellow';
+    x.addEventListener('mouseenter', (e) => {
+
+
+    let RGBInput = RGB ();
+
+    x.style.background  = 'rgb('+RGBInput[0]+','+RGBInput[1]+','+RGBInput[2]+')';
+
+
+  
+
+   
     })
 }
     }
@@ -41,13 +63,11 @@ resetButton.addEventListener('click', (e) => {
 }  else if (newGrid > 100 || newGrid < 1) {alert('Please Select A number between 1 and 100')
 }  else { 
     
-    // idea: nest startup makeGrid on conditional if resetButton hasn't been clicked. try if event.target =
-    //Step two: create a new grid using newGrid as parameters
     makeGrid(newGrid,newGrid);
     
     
 }; 
-})//event end 
+})
 
 
          
